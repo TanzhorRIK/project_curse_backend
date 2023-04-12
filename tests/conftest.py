@@ -2081,7 +2081,7 @@ def test_data_filter():
 
 
 @pytest.fixture
-def data_strings_date():
+def test_data_strings_date():
     data = """2019-08-26T10:50:58.294041
 2019-07-03T18:35:29.512364
 2018-06-30T02:08:58.425572
