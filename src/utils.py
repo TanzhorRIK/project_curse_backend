@@ -1,4 +1,6 @@
-import json, datetime, math
+import json
+import datetime
+import math
 
 
 def get_data() -> list:
@@ -35,7 +37,7 @@ def in_date_time(string: str) -> datetime.datetime:
     h, m, s = int(t.split(":")[0]), int(t.split(":")[1]), math.ceil(
         float(t.split(":")[2]))
     dt = datetime.datetime(y, mn, d, h, m, s)
-    return (dt)
+    return dt
 
 
 def format_data(operation: list) -> str:
@@ -52,4 +54,4 @@ def format_data(operation: list) -> str:
         frm_id_card_hidden = ""
     oprtnamnt = operation["operationAmount"]
     to_the = operation["to"]
-    return f"{dte.strftime('%d.%m.%Y')} {dscrtin}\n {frm} {frm_id_card_hidden} -> {to_the.split()[0]} **{to_the.split()[1][-4:]}\n{oprtnamnt['amount']} {oprtnamnt['currency']['name']}"
+    return f"{dte.strftime('%d.%m.%Y')} {dscrtin}\n{frm} {frm_id_card_hidden} -> {to_the.split()[0]} **{to_the.split()[1][-4:]}\n{oprtnamnt['amount']} {oprtnamnt['currency']['name']}"
