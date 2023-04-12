@@ -43,3 +43,22 @@ def test_in_date_time(test_data_strings_date):
 
     assert all(type(utils.in_date_time(x)) == datetime.datetime for x in
                test_data_strings_date) == True
+
+
+def test_format_data(test_data_filter):
+    for operation in test_data_filter:
+        dt = operation["date"]
+        dscrptn = operation["description"]
+        frm = operation["from"] if "Перевод" in dscrptn else ""
+        # Шаблон 1, если frm не пуст
+        if len(frm) != 0:
+            lst_to_check = [utils.in_date_time(dt).strftime('%d.%m.%Y'),
+                            "** ****", "->"]
+        # Шаблон 2, если frm пуст
+        else:
+            lst_to_check = [utils.in_date_time(dt).strftime('%d.%m.%Y'), "->",
+                            " **"]
+
+        # есть ли все шаблоны в форматированной строке
+        for test in lst_to_check:
+            assert test in utils.format_data(operation)
