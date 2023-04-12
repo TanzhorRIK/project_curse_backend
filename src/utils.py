@@ -9,7 +9,7 @@ def get_data() -> list:
         return data
 
 
-def filtr(data: list) -> list:
+def data_filter(data: list) -> list:
     """This function return data:list with operations,
      if these operations are performed"""
     result = []
@@ -21,7 +21,7 @@ def filtr(data: list) -> list:
     return result
 
 
-def srted(data: list) -> list:
+def data_sorted(data: list) -> list:
     """This function sorts list by date and time in descending order
      and return new list"""
     data = sorted(data, key=lambda x: in_date_time(x["date"]), reverse=True)
